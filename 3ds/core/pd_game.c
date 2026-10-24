@@ -202,7 +202,7 @@ void pd_game_detect(struct pd_game* g, const uint8_t* header, size_t romSize) {
         g->cfg = &EMERALD;
     } else {
         g->title = "Unknown game";
-        g->unsupported = "Not a game the 3DS companion knows yet";
+        g->unsupported = "Not a game this companion knows yet";
         return;
     }
     if (g->revision > 1) {
@@ -213,6 +213,6 @@ void pd_game_detect(struct pd_game* g, const uint8_t* header, size_t romSize) {
         // by SHA1 (Poller.detect) - not ported yet.
         g->cfg = NULL;
         g->title = g->kind == PD_GAME_FIRERED ? "FireRed ROM hack" : "Emerald ROM hack";
-        g->unsupported = "ROM hacks aren't supported on 3DS yet";
+        g->unsupported = "ROM hacks aren't supported here yet";
     }
 }

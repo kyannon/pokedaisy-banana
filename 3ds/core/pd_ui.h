@@ -152,5 +152,9 @@ enum pd_action pd_ui_take_action(struct pd_ui* ui);
 bool pd_ui_tick(struct pd_ui* ui, unsigned ms);
 
 const char* pd_screen_mode_name(int mode);
+// The names SETTINGS shows for the screen modes, for a host whose screen
+// scales the game otherwise than the 3DS's (NULL keeps a name). The strings
+// must outlive the companion.
+void pd_screen_mode_set_names(const char* const names[PD_SCREEN_MODES]);
 
 #endif

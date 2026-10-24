@@ -10,10 +10,18 @@
 #define TITLE_H 24
 #define LIST_Y (CONTENT_Y + TITLE_H + 4)
 
-static const char* const SCREEN_NAMES[PD_SCREEN_MODES] = { "PIXEL 1x", "SHARP 1.5x", "STRETCH" };
+// The 3DS's names; a host whose screen scales the game otherwise names the
+// modes itself (pd_screen_mode_set_names).
+static const char* SCREEN_NAMES[PD_SCREEN_MODES] = { "PIXEL 1x", "SHARP 1.5x", "STRETCH" };
 
 const char* pd_screen_mode_name(int mode) {
     return mode >= 0 && mode < PD_SCREEN_MODES ? SCREEN_NAMES[mode] : "";
+}
+
+void pd_screen_mode_set_names(const char* const names[PD_SCREEN_MODES]) {
+    for (int i = 0; i < PD_SCREEN_MODES; i++) {
+        if (names[i]) SCREEN_NAMES[i] = names[i];
+    }
 }
 
 static void setting(struct pd_ui* ui, struct pd_canvas* c, int x, int* y, int w, enum setting_row row,
